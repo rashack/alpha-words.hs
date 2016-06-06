@@ -14,15 +14,15 @@ main = do
   mapM_ putStrLn (sortOn length words)
 
 spellableWords :: [Char] -> [String] -> [String]
-spellableWords chars words =
+spellableWords chars dict =
   filter (restrict chars) possibleWords
   where
     forbiddenChars = ['a'..'z'] \\ chars
-    possibleWords = removeForbidden forbiddenChars words
+    possibleWords = removeForbidden forbiddenChars dict
 
 removeForbidden :: [Char] -> [String] -> [String]
-removeForbidden forbiddenChars words =
-  filter containsForbidden words
+removeForbidden forbiddenChars dict =
+  filter containsForbidden dict
   where
     containsForbidden word =
       not $ containsOne forbiddenChars word
