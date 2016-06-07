@@ -1,6 +1,6 @@
 name:                alpha-words
 version:             0.1.0.0
-synopsis:            Find words from a subset of a list of characters
+synopsis:            Use a subset of characters from given list to find words from a dictionary
 description:         Please see README.md
 homepage:            https://github.com/rashack/alpha-words#readme
 license:             BSD3
