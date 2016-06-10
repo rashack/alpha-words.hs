@@ -8,8 +8,10 @@ import Lib
 import System.Environment
 import System.IO (hFlush, stdout)
 
+alphabet :: [Char]
 alphabet = ['a'..'z']
 
+main :: IO ()
 main = do
   args <- getArgs
   dict <- getDict args
