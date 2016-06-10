@@ -25,4 +25,14 @@ If no dictionary is given, it will default to the one in the previous example
 To visualize words based on a prioritized subset, input available characters as
 "<prioritized> <rest>" and a second column will contain words that will use all
 prioritized characters. This is useful if you really want to use some word ASAP,
-maybe they are worth more or disappear the next round.
+maybe they are worth more or disappear the next round. If you for example have
+the characters "foobar" and really want to use "f" and "o", input "foo bar" and
+the result will be something like this in interactive mode:
+
+| ----- | ----- |
+| rob   |       |
+| barf  |       |
+| boar  |       |
+| boor  |       |
+| fora  |       |
+| roof  | roof  |
