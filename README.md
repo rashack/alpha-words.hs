@@ -28,11 +28,11 @@ prioritized characters. This is useful if you really want to use some word ASAP,
 maybe they are worth more or disappear the next round. If you for example have
 the characters "foobar" and really want to use "f" and "o", input "foo bar" and
 the result will be something like this in interactive mode:
-
-| ----- | ----- |
-| rob   |       |
-| barf  |       |
-| boar  |       |
-| boor  |       |
-| fora  |       |
-| roof  | roof  |
+<table style="width:100%">
+  <tr><td> rob  </td><td>      </td></tr>
+  <tr><td> barf </td><td>      </td></tr>
+  <tr><td> boar </td><td>      </td></tr>
+  <tr><td> boor </td><td>      </td></tr>
+  <tr><td> fora </td><td>      </td></tr>
+  <tr><td> roof </td><td> roof </td></tr>
+</table>
