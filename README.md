@@ -23,16 +23,15 @@ If no dictionary is given, it will default to the one in the previous example
 `/usr/share/dict/words`
 
 To visualize words based on a prioritized subset, input available characters as
-"&lt;prioritized&gt; &lt;rest&gt;" and a second column will contain words that will use all
-prioritized characters. This is useful if you really want to use some word ASAP,
-maybe they are worth more or disappear the next round. If you for example have
-the characters "foobar" and really want to use "f" and "o", input "foo bar" and
-the result will be something like this in interactive mode:
+"&lt;prioritized&gt; &lt;rest&gt;" and a second column will contain words that
+will use all prioritized characters. This is useful if you really want to use
+some word ASAP, maybe they are worth more or disappear the next round. If you
+for example have the characters `fooar` and really want to use `f` and `o`,
+input `fo oar` and the result will be something like this in interactive mode:
 <table style="width:100%">
-  <tr><td> rob  </td><td>      </td></tr>
-  <tr><td> barf </td><td>      </td></tr>
-  <tr><td> boar </td><td>      </td></tr>
-  <tr><td> boor </td><td>      </td></tr>
-  <tr><td> fora </td><td>      </td></tr>
+  <tr><td> fro  </td><td> fro  </td></tr>
+  <tr><td> oaf  </td><td> oaf  </td></tr>
+  <tr><td> oar  </td><td>      </td></tr>
+  <tr><td> fora </td><td> fora </td></tr>
   <tr><td> roof </td><td> roof </td></tr>
 </table>
