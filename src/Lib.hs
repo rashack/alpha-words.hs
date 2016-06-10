@@ -1,5 +1,7 @@
 module Lib
-    ( spellableWords
+    ( hasAllChars
+    , onlyWordsWith
+    , spellableWords
     ) where
 
 import Data.List (delete, (\\))
@@ -29,3 +31,11 @@ restrict :: [Char] -> [Char] -> Bool
 restrict _      []   = True
 restrict []     word = False
 restrict (l:ls) word = restrict ls (delete l word)
+
+onlyWordsWith :: [Char] -> [String] -> [String]
+onlyWordsWith chars words =
+  filter (hasAllChars chars) words
+
+hasAllChars :: String -> [Char] -> Bool
+hasAllChars word chars =
+  chars \\ word == ""
