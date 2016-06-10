@@ -23,7 +23,7 @@ removeForbidden forbiddenChars dict =
 containsOne :: [Char] -> String -> Bool
 containsOne []     word = False
 containsOne (c:cs) word =
-  case elem c word of
+  case c `elem` word of
     True  -> True
     False -> containsOne cs word
 
