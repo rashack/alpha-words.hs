@@ -8,7 +8,7 @@ import Lib
 import System.Environment
 import System.IO (hFlush, stdout)
 
-alphabet :: [Char]
+alphabet :: String
 alphabet = ['a'..'z']
 
 main :: IO ()
@@ -25,7 +25,7 @@ getDict :: [FilePath] -> IO [String]
 getDict args =
   case length args of
     0 -> readDict "/usr/share/dict/words"
-    _ -> readDict (args !! 0)
+    _ -> readDict $ head args
 
 readDict :: FilePath -> IO [String]
 readDict fileName = do
@@ -39,7 +39,7 @@ printOrdered words =
 lengthOrdered :: [[a]] -> [[a]]
 lengthOrdered = sortOn length
 
-interactive :: [String] -> [Char] -> IO b
+interactive :: [String] -> String -> IO b
 interactive dict alphabet = forever $ do
   putStr "> "
   hFlush stdout
@@ -48,21 +48,22 @@ interactive dict alphabet = forever $ do
   putStrLn $ concat $ replicate (length chars) "-"
   putStrLn chars
 
-showRes :: String -> [Char] -> [String] -> IO ()
+showRes :: String -> String -> [String] -> IO ()
 showRes chars alphabet dict = do
   let spellable = spellableWords chars alphabet dict
-  case (length $ words chars) of
+  case length $ words chars of
     1 -> printOrdered spellable
     _ -> printOrderedAndPrioritizedWords chars (head $ words chars) spellable
 
-printOrderedAndPrioritizedWords :: [Char] -> [Char] -> [String] -> IO ()
+printOrderedAndPrioritizedWords :: String -> String -> [String] -> IO ()
 printOrderedAndPrioritizedWords chars prioritized spellable = do
   let lOrdered = lengthOrdered spellable
   mapM_ (printOrderedAndPrioritizedWord chars prioritized) lOrdered
 
-printOrderedAndPrioritizedWord :: [Char] -> [Char] -> String -> IO ()
+printOrderedAndPrioritizedWord :: String -> String -> String -> IO ()
 printOrderedAndPrioritizedWord chars prioritized word = do
   putStr word
-  case hasAllChars word prioritized of
-    False -> putStrLn ""
-    True  -> putStrLn $ (concat $ replicate (32 - (length word)) " ") ++ word
+  putStrLn
+    (if hasAllChars word prioritized then
+      concat (replicate (32 - length word) " ") ++ word
+     else "")
